@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Todo List</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-tasks"></i> My Todo List</h1>
+            <p class="subtitle">Stay organized and productive</p>
+        </header>
+
+        <div class="input-section">
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    id="todoInput" 
+                    placeholder="Add a new task..." 
+                    autocomplete="off"
+                >
+                <select id="categorySelect" class="category-select">
+                    <option value="work">Work</option>
+                    <option value="personal">Personal</option>
+                    <option value="shopping">Shopping</option>
+                    <option value="health">Health</option>
+                    <option value="other">Other</option>
+                </select>
+                <button id="addBtn" class="btn-add">
+                    <i class="fas fa-plus"></i> Add
+                </button>
+            </div>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">
+                <i class="fas fa-list"></i> All
+            </button>
+            <button class="filter-btn" data-filter="active">
+                <i class="fas fa-circle"></i> Active
+            </button>
+            <button class="filter-btn" data-filter="completed">
+                <i class="fas fa-check-circle"></i> Completed
+            </button>
+            <button class="filter-btn" data-filter="work">
+                <i class="fas fa-briefcase"></i> Work
+            </button>
+            <button class="filter-btn" data-filter="personal">
+                <i class="fas fa-user"></i> Personal
+            </button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-label">Total:</span>
+                <span class="stat-value" id="totalCount">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Completed:</span>
+                <span class="stat-value" id="completedCount">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Remaining:</span>
+                <span class="stat-value" id="remainingCount">0</span>
+            </div>
+        </div>
+
+        <ul id="todoList" class="todo-list">
+            <li class="empty-state">
+                <i class="fas fa-inbox"></i>
+                <p>No tasks yet. Add one to get started!</p>
+            </li>
+        </ul>
+
+        <div class="actions">
+            <button id="clearCompletedBtn" class="btn-secondary">
+                <i class="fas fa-trash"></i> Clear Completed
+            </button>
+            <button id="exportBtn" class="btn-secondary">
+                <i class="fas fa-download"></i> Export
+            </button>
+            <button id="importBtn" class="btn-secondary">
+                <i class="fas fa-upload"></i> Import
+            </button>
+            <input type="file" id="importFile" accept=".json" style="display: none;">
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
